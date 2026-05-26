@@ -60,23 +60,19 @@ html, body {
 }
 
 /* =========================================
-   5. YAML / 笔记元信息：信息卡风格 【v0.2.0 新增】
+   5. YAML / 代码块容器：信息卡风格 【v0.2.0 新增】
    圆角卡片 · 左侧 #D97757 色条 · 柔和阴影
+   选择器对齐原始 CSS，使用 .ProseMirror pre 确保命中
    ========================================= */
 
-/* 覆盖 ProseMirror 内所有可能的 YAML / metadata 容器 */
-.ProseMirror pre[lang="yaml"],
-.ProseMirror .yaml-front-matter,
-.ProseMirror .note-metadata,
-.ProseMirror [data-language="yaml"],
-.ProseMirror .ProseMirror-yaml {
+.ProseMirror pre {
     position: relative !important;
     padding: 1.2rem 1.25rem 1.2rem 1.5rem !important;
     margin-bottom: 1.5rem !important;
     font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, "Courier New", monospace !important;
-    font-size: 0.82rem !important;
-    line-height: 1.7 !important;
-    color: rgba(61, 61, 58, 0.82) !important;
+    font-size: 0.875rem !important;
+    line-height: 1.625 !important;
+    color: #14181f !important;
     background: rgba(255, 255, 255, 0.50) !important;
     border: 1px solid rgba(31, 30, 29, 0.12) !important;
     border-left: 3px solid #D97757 !important;
@@ -84,31 +80,8 @@ html, body {
     box-shadow:
         0 4px 14px rgba(31, 30, 29, 0.04),
         inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
-    overflow: hidden !important;
-}
-
-/* YAML 标签角标 — 悬浮在容器左上角 */
-.ProseMirror pre[lang="yaml"]::before,
-.ProseMirror .yaml-front-matter::before,
-.ProseMirror .note-metadata::before,
-.ProseMirror [data-language="yaml"]::before,
-.ProseMirror .ProseMirror-yaml::before {
-    content: "YAML";
-    position: absolute !important;
-    top: -9px !important;
-    left: 16px !important;
-    display: block !important;
-    background: #D97757 !important;
-    color: #fff !important;
-    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-    font-size: 0.65rem !important;
-    font-weight: 700 !important;
-    line-height: 1 !important;
-    padding: 3px 10px !important;
-    border-radius: 10px !important;
-    letter-spacing: 0.04em !important;
-    z-index: 1 !important;
-    pointer-events: none !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
 }
 
 /* =========================================
@@ -165,21 +138,8 @@ html, body {
 }
 
 /* =========================================
-   8. 多行代码块：半透明白底 + 微妙边框
-   参照 typora_claude §6.7
+   8. 代码块内部 code 元素：继承容器样式，去除冗余
    ========================================= */
-
-.ProseMirror pre {
-    font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, "Courier New", monospace !important;
-    font-size: 0.875rem !important;
-    line-height: 1.625 !important;
-    background-color: rgba(255, 255, 255, 0.50) !important;
-    padding: 14px 14px 14px 14px !important;
-    border: 0.5px solid rgba(31, 30, 29, 0.15) !important;
-    border-radius: 0.5rem !important;
-    overflow-x: auto !important;
-    color: #14181f !important;
-}
 
 .ProseMirror pre code {
     color: #14181f !important;
